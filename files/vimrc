@@ -1,0 +1,16 @@
+filetype plugin on
+" modeline let you set vim config in the file itself
+set modeline
+set modelines=4
+
+
+" tab standards. the below is equivalent to a mode line like this:
+"   vim: ts=2 sw=2 sts=2 sta et ai
+set tabstop=2
+set shiftwidth=2
+set smarttab
+set expandtab
+set softtabstop=2
+set autoindent
+autocmd FileType make set noexpandtab
+

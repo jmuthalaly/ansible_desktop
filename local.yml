@@ -6,8 +6,24 @@
 
 
   tasks:
-  - name: install htop
+  - name: install packages
     package:
       name: 
         - htop
         - vim
+
+  - name: copy wallpaper file
+    copy:
+      src: files/wallpaper.png
+      dest: /usr/share/backgrounds/ansible-wallpaper.png
+      owner: root
+      group: root
+
+  - name: copy vimrc
+    copy:
+      src: files/vimrc
+      dest: /home/jmuthalaly/.bashrc
+      owner: jmuthalaly
+      group: jmuthalaly
+
+
