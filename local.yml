@@ -12,18 +12,10 @@
         - htop
         - vim
 
-  - name: copy wallpaper file
-    copy:
-      src: files/wallpaper.png
-      dest: /usr/share/backgrounds/ansible-wallpaper.png
-      owner: root
-      group: root
-
   - name: copy vimrc file
     copy:
       src: files/vimrc
       dest: /home/jmuthalaly/.vimrc
       owner: jmuthalaly
       group: jmuthalaly
-
 
