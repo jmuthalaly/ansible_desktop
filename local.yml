@@ -45,4 +45,4 @@
       name: ansible-auto-provision
       user: raptor
       minute: "*/10"
-      job: ansible-pull -O -U https://github.com/jmuthalaly/ansible_pull.git
+      job: ansible-pull -o -U https://github.com/jmuthalaly/ansible_pull.git
