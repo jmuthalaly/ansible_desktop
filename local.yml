@@ -12,6 +12,14 @@
         - htop
         - vim
 
+  - name: set up sudo for personal user
+    copy: 
+      src: files/sudoer_jmuthalaly
+      dest: /etc/sudoers.d/jmuthalaly
+      owner: root
+      group: root
+      mode: 0440
+  
   - name: copy vimrc file
     copy:
       src: files/vimrc
@@ -19,3 +27,22 @@
       owner: jmuthalaly
       group: jmuthalaly
 
+  - name: add ansible user
+    user:
+      name: raptor
+      system: yes
+
+  - name: set up sudo for ansible user
+    copy: 
+      src: files/sudoer_raptor
+      dest: /etc/sudoers.d/raptor
+      owner: root
+      group: root
+      mode: 0440
+
+  - name: add ansible-pull cron job
+    cron:
+      name: ansible-auto-provision
+      user: raptor
+      minute: "*/10"
+      job: ansible-pull -O -U https://github.com/jmuthalaly/ansible_pull.git
